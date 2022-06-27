@@ -1,0 +1,33 @@
+
+- name: Copy MongoDB YUM repo file
+  ansible.builtin.template:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongodb.repo
+
+- name: Install Mongodb
+  ansible.builtin.yum:
+    name: mongodb-org
+    state: installed
+
+- name: Replace listen address in MONGODB configuration file
+  ansible.builtin.replace:
+    path: /etc/mongodb.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: Start Mongodb Service
+  ansible.builtin.systemd:
+    name: mongod
+    enabled: yes
+    state: restarted
+
+- name: Download and Extract {{ COMPONENT }} Component Archive
+  ansible.builtin.unarchive:
+    src: https://github.com/roboshop-devops-project/{{ COMPONENT }}/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+
+- name: Load Schema - Catalogue
+  community.mongodb.mongodb_shell:
+    file: "/tmp/mongodb-main/catalogue.js"
+    idempotent: yes
