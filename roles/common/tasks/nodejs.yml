@@ -1,10 +1,4 @@
-#  NODEJS()
-#    {
 
-#      PRINT "Installing NodeJS"
-#      yum install nodejs -y &>>${LOG}
-#      CHECK_STAT $?
-#
 #      APP_COMMON_SETUP
 #
 #      PRINT "Install NodeJS Dependencies"
@@ -27,3 +21,8 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: download
+
+
+- name: Install Nodejs Dependencies
+  community.general.npm:
+    path: "{{ APP_LOCATION }}"
