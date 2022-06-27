@@ -22,6 +22,11 @@
     name: common
     tasks_from: download
 
+- name: Copy Roboshop config file
+  ansible.builtin.template:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
 - name: Start Nginx Service
   ansible.builtin.systemd:
     name: nginx
