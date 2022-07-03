@@ -1,4 +1,4 @@
-- name: Restart Nginx Server
+- name: Restart Nginx Service
   ansible.builtin.systemd:
     name: nginx
     state: restarted
