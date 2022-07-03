@@ -6,7 +6,7 @@
 - hosts: MONGODB
   become: yes
   roles:
-    - "MONGODB"
+    - "mongodb"
 
 - hosts: CATALOGUE
   become: yes
