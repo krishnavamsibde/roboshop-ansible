@@ -3,7 +3,7 @@
 ##### Change these values ###
 ZONE_ID="Z069695745ZO9JTW1RJD"
 SG_NAME="allow-all-to-public"
-IAM_INSTANCE_PROFILE="arn:aws:iam::794750663080:instance-profile/role-for-secret-manager-for-roboshop-components"
+IAM_INSTANCE_PROFILE="ARN=arn:aws:iam::794750663080:instance-profile/role-for-secret-manager-for-roboshop-components"
 #############################
 
 
