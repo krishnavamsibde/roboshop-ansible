@@ -3,6 +3,7 @@
 ##### Change these values ###
 ZONE_ID="Z069695745ZO9JTW1RJD"
 SG_NAME="allow-all-to-public"
+IAM_INSTANCE_PROFILE="arn:aws:iam::794750663080:instance-profile/role-for-secret-manager-for-roboshop-components"
 #############################
 
 
@@ -14,6 +15,7 @@ create_ec2() {
       --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" \
       --instance-market-options "MarketType=spot,SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}"\
       --security-group-ids ${SGID} \
+      --iam-instance-profile="${IAM_INSTANCE_PROFILE}"
       | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
   sed -e "s/IPADDRESS/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}/" route53.json >/tmp/record.json
