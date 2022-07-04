@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ##### Change these values ###
-ZONE_ID="Z069695745ZO9JTW1RJD"
+ZONE_ID="Z080600234ZUEKDP4RGN8"
 SG_NAME="allow-all-to-public"
-IAM_INSTANCE_PROFILE="arn:aws:iam::794750663080:instance-profile/role-for-secret-manager-for-roboshop-components"
+IAM_INSTANCE_PROFILE="Arn=arn:aws:iam::633788536644:instance-profile/role-for-secret-manager-for-roboshop-components"
 #############################
 
 
@@ -23,9 +23,7 @@ create_ec2() {
 }
 
 #AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=Centos-7-DevOps-Practice" | jq '.Images[].ImageId' | sed -e 's/"//g')
-
-AMI_ID="ami-0ed52d9176c96bc18"
-
+AMI_ID="ami-0eccf89e870877654"
 SGID=$(aws ec2 describe-security-groups --filters Name=group-name,Values=${SG_NAME} | jq  '.SecurityGroups[].GroupId' | sed -e 's/"//g')
 
 if [ "$COMPONENT" == "all" ]; then
