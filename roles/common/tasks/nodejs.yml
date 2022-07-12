@@ -12,7 +12,6 @@
     name: common
     tasks_from: download
 
-
 # these steps are now performed from CI steps
 #- name: Install Nodejs Dependencies
 #  community.general.npm:
