@@ -12,9 +12,11 @@
     name: common
     tasks_from: download
 
-- name: Install Nodejs Dependencies
-  community.general.npm:
-    path: "{{ APP_LOCATION }}"
+
+# these steps are now performed from CI steps
+#- name: Install Nodejs Dependencies
+#  community.general.npm:
+#    path: "{{ APP_LOCATION }}"
 
 - name: SystemD Setup for {{ COMPONENT }} Service
   ansible.builtin.include_role:
