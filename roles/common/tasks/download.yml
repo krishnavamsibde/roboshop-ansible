@@ -27,6 +27,6 @@
 
 - name: Download and Extract {{ COMPONENT }} Component Archive
   ansible.builtin.unarchive:
-    src: http://18.234.76.74:8081/repository/{{ COMPONENT }}/{{ COMPONENT }}-{{ APP_VERSION }}.zip
+    src: http://3.237.189.15:8081/repository/{{ COMPONENT }}/{{ COMPONENT }}-{{ APP_VERSION }}.zip
     dest: "{{ APP_LOCATION }}/"
     remote_src: yes
