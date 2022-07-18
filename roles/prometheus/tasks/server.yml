@@ -2,3 +2,8 @@
   ansible.builtin.template:
     src: prometheus.yml
     dest: /opt/prometheus/prometheus.yml
+
+- name: Restart Problems
+  ansible.builtin.systemd:
+    name: prometheus
+    state: restarted
