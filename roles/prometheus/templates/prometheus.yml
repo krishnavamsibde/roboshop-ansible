@@ -1,8 +1,6 @@
-
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
-
 
 # Alertmanager configuration
 alerting:
@@ -11,15 +9,11 @@ alerting:
         - targets:
       # - alertmanager:9093
 
-
-
 rule_files:
 # - "first_rules.yml"
 # - "second_rules.yml"
 
-
-
 scrape_configs:
   - job_name: "prometheus"
     static_configs:
-      - targets: ["172.31.82.34:9100"]
+      - targets: ["172.31.83.253:9100"]
