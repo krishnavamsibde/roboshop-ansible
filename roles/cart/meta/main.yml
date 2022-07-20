@@ -3,4 +3,3 @@ dependencies:
   - role: prometheus
     vars:
       SETUP_TYPE: client
-    
