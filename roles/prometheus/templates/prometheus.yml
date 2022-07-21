@@ -9,7 +9,7 @@ alerting:
             - localhost:9093
 
 rule_files:
-  - "alerts.yml"
+    - "alerts.yml"
   # - "second_rules.yml"
 
 scrape_configs:
