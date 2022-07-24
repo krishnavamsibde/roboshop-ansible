@@ -6,7 +6,6 @@ filebeat.inputs:
       - {{LOG_FILE}}
 
 
-
 {% if LOG_TYPE == "json" %}
 output.elasticsearch:
   index: "{{COMPONENT}}-%{+yyyy.MM.dd}"
@@ -19,7 +18,7 @@ setup.template.pattern: "{{COMPONENT}}-%{+yyyy.MM.dd}"
 
 {% if LOG_TYPE == "raw" %}
 output.logstash:
-  hosts: ["lasticsearch.roboshop.internal:5044"]
+  hosts: ["elasticsearch.roboshop.internal:5044"]
 {% endif %}
 
 
