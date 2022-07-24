@@ -21,6 +21,9 @@ output.logstash:
   hosts: ["elasticsearch.roboshop.internal:5044"]
 {% endif %}
 
+fields:
+  env: {{ENV}}
+  component: {{COMPONENT}}
 
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
