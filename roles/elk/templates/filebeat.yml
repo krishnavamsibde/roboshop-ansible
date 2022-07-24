@@ -4,9 +4,6 @@ filebeat.inputs:
     json.keys_under_root: true
     paths:
       - {{LOG_FILE}}
-    fields:
-      env: {{ENV}}
-      component: {{COMPONENT}}
 
 
 {% if LOG_TYPE == "json" %}
@@ -24,7 +21,9 @@ output.logstash:
   hosts: ["elasticsearch.roboshop.internal:5044"]
 {% endif %}
 
-
+fields:
+  env: {{ENV}}
+  component: {{COMPONENT}}
 
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
