@@ -1,13 +1,15 @@
 filebeat.inputs:
   - type: log
     enabled: true
+{% if LOG_TYPE == "json" %}
     json.keys_under_root: true
+{% endif %}
     paths:
       - {{LOG_FILE}}
     fields:
       env: {{ENV}}
       component: {{COMPONENT}}
-      
+
 {% if COMPONENT == "shipping" %}
     multiline.type: pattern
     multiline.pattern: '^2'
@@ -16,7 +18,7 @@ filebeat.inputs:
 {% endif %}
 
 
-  {% if LOG_TYPE == "json" %}
+{% if LOG_TYPE == "json" %}
 output.elasticsearch:
   index: "{{COMPONENT}}-%{+yyyy.MM.dd}"
   hosts: ["elasticsearch.roboshop.internal:9200"]
