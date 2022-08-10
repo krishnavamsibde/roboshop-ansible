@@ -23,6 +23,8 @@
     url: https://s3.cn-north-1.amazonaws.com.cn/rds-downloads/rds-combined-ca-cn-bundle.pem
     dest: /home/roboshop/catalogue/rds-combined-ca-bundle.pem
     mode: '0400'
+    owner: roboshop
+    group: roboshop
   when: DOCDB_ENDPOINT != "null"
 
 - name: SystemD Setup for {{ COMPONENT }} Service
