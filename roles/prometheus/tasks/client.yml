@@ -1,2 +1,2 @@
 - name: Install Node Exporter
-  ansible.builtin.shell: labauto clean ; labauto prometheus-node-exporter
+  ansible.builtin.shell: curl -s curl -s https://raw.githubusercontent.com/linuxautomations/labautomation/master/tools/prometheus-node-exporter/prometheus.service >/etc/systemd/system/node_exporter.service
