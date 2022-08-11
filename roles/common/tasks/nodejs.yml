@@ -19,7 +19,7 @@
 
 - name: Download DOCDB pem file
   ansible.builtin.get_url:
-    url: https://s3.cn-north-1.amazonaws.com.cn/rds-downloads/rds-combined-ca-cn-bundle.pem
+    url: https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
     dest: /home/roboshop/catalogue/rds-combined-ca-bundle.pem
     mode: '0400'
     owner: roboshop
